@@ -7,5 +7,6 @@ import 'package:time/time.dart';
 
 String ByteToBits(String char) {
   var nByte = utf8.encode(char);
+  
   return nByte.toString();
 }

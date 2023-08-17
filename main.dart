@@ -1,9 +1,12 @@
+import 'dart:convert';
 import 'dart:io';
 
+import 'functions.dart';
 import 'rtp.dart';
 
-var char = "A";
+
+
 
 void main() {
-  print(ByteToBits(char));
+  print(ByteToBites("A"));
 }
