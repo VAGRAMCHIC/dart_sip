@@ -28,5 +28,5 @@ String UtfCharToBytes(String inChar){
 
 String ByteToBites(String nByte){
   var out = UtfCharToBytes(nByte);
-  return out.padLeft(1,"0");
+  return  ("0"*(8-out.length))+out;
 }
