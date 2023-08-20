@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:typed_data';
-
+import 'package:binary/binary.dart';
 
 String IntToBytes(int char){
   //Converts a integer into byte format string
@@ -28,5 +28,6 @@ String UtfCharToBytes(String inChar){
 
 String ByteToBites(String nByte){
   var out = UtfCharToBytes(nByte);
-  return  ("0"*(8-out.length))+out;
+  print(out.length);
+  return  "".padLeft(1,out)+"0";
 }

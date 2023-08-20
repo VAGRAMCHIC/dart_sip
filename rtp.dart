@@ -30,5 +30,6 @@ class RTPPacketManager{
 String ByteToBits(String char) {
   var nByte = utf8.encode(char);
   
-  return nByte.toString();
+  //nByte = ("0"* new String.fromCharCodes(8-nByte.length))+new String.fromCharCodes(nByte);
+  return nByte.toString()+"0";
 }
