@@ -1,33 +1,21 @@
 import 'dart:convert';
+import 'dart:ffi';
 import 'dart:typed_data';
 import 'package:binary/binary.dart';
 
-String IntToBytes(int char){
-  //Converts a integer into byte format string
+
+String UtfCharToBytesSequence(String inChar){
   String result = "";
-  
-  while(char > 0){
-    result+= (char%2).toString();
-    char = char ~/ 2;
+  List<int> out = utf8.encode(inChar);
+  for(int i=out.length;i>0;--i){
+    while(out[i-1] > 0){
+      result+= (out[i-1]%2).toString();
+      out[i-1] = out[i-1] ~/ 2;
+    }
   }
-  return result;
+  if(result.length<8){
+   result = "0"+result;
+  }
+  return result.split('').reversed.join();
 }
 
-String UtfCharToBytes(String inChar){
-  //Converts a single character string into byte format string  
-  var utfChar = utf8.encode(inChar);
-  var char = utfChar[0];
-  String result = "";
-  
-  while(char > 0){
-    result+= (char%2).toString();
-    char = char ~/ 2;
-  }
-  return result;
-}
-
-String ByteToBites(String nByte){
-  var out = UtfCharToBytes(nByte);
-  print(out.length);
-  return  "".padLeft(1,out)+"0";
-}
