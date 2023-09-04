@@ -1,8 +1,5 @@
 import 'dart:convert';
-import 'dart:ffi';
-import 'dart:typed_data';
-import 'package:binary/binary.dart';
-
+import 'dart:math';
 
 String UtfCharToBytesSequence(String inChar){
   String result = "";
